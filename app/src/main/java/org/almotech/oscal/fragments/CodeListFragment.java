@@ -32,6 +32,7 @@ import org.almotech.oscal.widgets.BookmarksMultiChoiceModeListener;
  */
 public class CodeListFragment extends Fragment {
 
+    private int i = 0;//prove
 	private static final int BOOKMARKS_LOADER_ID = 1;
 	private static final String PREF_UPCOMING_ONLY = "bookmarks_upcoming_only";
 
