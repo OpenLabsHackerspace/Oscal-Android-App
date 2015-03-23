@@ -1,5 +1,7 @@
 package org.almotech.oscal.fragments;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.content.BroadcastReceiver;
@@ -26,7 +28,7 @@ import org.almotech.oscal.model.Day;
 
 import com.example.android.common.view.SlidingTabLayout;
 
-public class TracksFragment extends Fragment implements LoaderCallbacks<List<Day>> {
+public class TracksFragment extends Fragment /*implements LoaderCallbacks<List<Day>> */{
 
 	private static class ViewHolder {
 		View contentView;
@@ -47,13 +49,46 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<List<Day
 		super.onCreate(savedInstanceState);
 		daysAdapter = new DaysAdapter(getChildFragmentManager());
 
+        loadData();
+
 		if (savedInstanceState == null) {
 			// Restore the current page from preferences
 			savedCurrentPage = getActivity().getPreferences(Context.MODE_PRIVATE).getInt(PREF_CURRENT_PAGE, -1);
 		}
 	}
 
-	@Override
+    /**
+     * loado te dhena statike
+     * */
+    private void loadData() {
+
+        List<Day> data = new ArrayList<>();
+        Day day = new Day();
+        day.setIndex(0);
+        day.setDate(new Date(1426463607));
+
+        daysAdapter.setDays(data);
+        final int totalPages = daysAdapter.getCount();
+        if (totalPages == 0) {
+            holder.contentView.setVisibility(View.GONE);
+            holder.emptyView.setVisibility(View.VISIBLE);
+            holder.pager.setOnPageChangeListener(null);
+        } else {
+            holder.contentView.setVisibility(View.VISIBLE);
+            holder.emptyView.setVisibility(View.GONE);
+            if (holder.pager.getAdapter() == null) {
+                holder.pager.setAdapter(daysAdapter);
+            }
+            holder.slidingTabs.setViewPager(holder.pager);
+            if (savedCurrentPage != -1) {
+                holder.pager.setCurrentItem(Math.min(savedCurrentPage, totalPages - 1), false);
+                savedCurrentPage = -1;
+            }
+        }
+
+    }
+
+    @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_tracks, container, false);
 
@@ -76,7 +111,7 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<List<Day
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-		getLoaderManager().initLoader(DAYS_LOADER_ID, null, this);
+		//getLoaderManager().initLoader(DAYS_LOADER_ID, null, this);
 	}
 
 	@Override
@@ -123,7 +158,7 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<List<Day
 			return DatabaseManager.getInstance().getDays();
 		}
 	}
-
+/*
 	@Override
 	public Loader<List<Day>> onCreateLoader(int id, Bundle args) {
 		return new DaysLoader(getActivity());
@@ -154,7 +189,7 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<List<Day
 
 	@Override
 	public void onLoaderReset(Loader<List<Day>> loader) {
-	}
+	}*/
 
 	private static class DaysAdapter extends FragmentStatePagerAdapter {
 
