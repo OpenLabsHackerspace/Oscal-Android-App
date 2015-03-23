@@ -49,7 +49,7 @@ public class TracksFragment extends Fragment /*implements LoaderCallbacks<List<D
 		super.onCreate(savedInstanceState);
 		daysAdapter = new DaysAdapter(getChildFragmentManager());
 
-        loadData();
+        //loadData();
 
 		if (savedInstanceState == null) {
 			// Restore the current page from preferences

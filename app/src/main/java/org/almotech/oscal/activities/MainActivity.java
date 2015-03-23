@@ -14,6 +14,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -67,6 +68,8 @@ import org.almotech.oscal.fragments.TracksFragment;
  * @author Christophe Beyls
  */
 public class MainActivity extends ActionBarActivity implements ListView.OnItemClickListener {
+
+    String url = "http://oscal.openlabs.cc/";
 
 	private enum Section {
 		TRACKS(TracksFragment.class, R.string.menu_tracks, R.drawable.ic_event_grey600_24dp, true),
@@ -346,8 +349,8 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 	@SuppressLint("NewApi")
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-
+		getMenuInflater().inflate(R.menu.person, menu);
+/*
 		MenuItem searchMenuItem = menu.findItem(R.id.search);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
 			this.searchMenuItem = searchMenuItem;
@@ -359,12 +362,12 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 			// Legacy search mode for Eclair
 			MenuItemCompat.setActionView(searchMenuItem, null);
 			MenuItemCompat.setShowAsAction(searchMenuItem, MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
-		}
+		}*/
 
 		return true;
 	}
 
-	@Override
+/*	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// Hide & disable primary (contextual) action items when the main menu is opened
 		if (drawerLayout.isDrawerOpen(mainMenu)) {
@@ -379,7 +382,7 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 
 		return super.onPrepareOptionsMenu(menu);
 	}
-
+*/
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Will close the drawer if the home button is pressed
@@ -399,6 +402,10 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 			case R.id.refresh:
 				startDownloadSchedule();
 				return true;
+            case R.id.more_info:
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+                return true;
 		}
 		return false;
 	}

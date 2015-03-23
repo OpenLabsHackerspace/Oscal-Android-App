@@ -1,148 +1,82 @@
 package org.almotech.oscal.fragments;
 
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AlphabetIndexer;
-import android.widget.ListView;
-import android.widget.SectionIndexer;
-import android.widget.TextView;
+
+import com.squareup.otto.Subscribe;
 
 import org.almotech.oscal.R;
-import org.almotech.oscal.activities.PersonInfoActivity;
-import org.almotech.oscal.db.DatabaseManager;
-import org.almotech.oscal.loaders.SimpleCursorLoader;
-import org.almotech.oscal.model.Person;
+import org.almotech.oscal.adapters.RVAdapter;
+import org.almotech.oscal.api.Communicator;
+import org.almotech.oscal.model.SpeakerModel;
+import org.almotech.oscal.model.ServerResponse;
+import org.almotech.oscal.utils.BusProvider;
 
-public class PersonsListFragment extends SmoothListFragment implements LoaderCallbacks<Cursor> {
+import java.util.ArrayList;
+
+public class PersonsListFragment extends Fragment  {
 
 	private static final int PERSONS_LOADER_ID = 1;
 
-	private PersonsAdapter adapter;
+    ArrayList<SpeakerModel> modelArrayList;
+    RVAdapter mRvAdapter;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		adapter = new PersonsAdapter(getActivity());
-		setListAdapter(adapter);
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
+        Communicator mCommunicator =new Communicator();
+        mCommunicator.getSomeSpeakers();
+    }
 
-		getListView().setFastScrollEnabled(true);
-		setEmptyText(getString(R.string.no_data));
-		setListShown(false);
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View mView = inflater.inflate(R.layout.speakers_fragment, container,false);
 
-		getLoaderManager().initLoader(PERSONS_LOADER_ID, null, this);
-	}
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
 
-	private static class PersonsLoader extends SimpleCursorLoader {
+        RecyclerView mRecyclerView = (RecyclerView) mView.findViewById(R.id.rv);
+        mRecyclerView.setLayoutManager(manager);
 
-		public PersonsLoader(Context context) {
-			super(context);
-		}
+        if(modelArrayList==null)
+        modelArrayList = new ArrayList<>();
 
-		@Override
-		protected Cursor getCursor() {
-			return DatabaseManager.getInstance().getPersons();
-		}
-	}
+        if(mRvAdapter == null)
+        mRvAdapter = new RVAdapter(modelArrayList);
 
-	@Override
-	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-		return new PersonsLoader(getActivity());
-	}
+        mRecyclerView.setAdapter(mRvAdapter);
 
-	@Override
-	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-		if (data != null) {
-			adapter.swapCursor(data);
-		}
+        return mView;
+    }
 
-		setListShown(true);
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+        BusProvider.getInstance().register(this);
 
-	@Override
-	public void onLoaderReset(Loader<Cursor> loader) {
-		adapter.swapCursor(null);
-	}
+    }
 
-	@Override
-	public void onListItemClick(ListView l, View v, int position, long id) {
-		Person person = adapter.getItem(position);
-		Intent intent = new Intent(getActivity(), PersonInfoActivity.class).putExtra(PersonInfoActivity.EXTRA_PERSON, person);
-		startActivity(intent);
-	}
+    @Override
+    public void onPause() {
+        super.onPause();
+        BusProvider.getInstance().unregister(this);
+    }
 
-	private static class PersonsAdapter extends CursorAdapter implements SectionIndexer {
+    @Subscribe
+    public void onSpeakersLoaded(ArrayList<SpeakerModel> modelArrayList){
 
-		private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if(modelArrayList != null && modelArrayList.size()>0){
+            this.modelArrayList.clear();
+            this.modelArrayList.addAll(modelArrayList);
+            mRvAdapter.notifyDataSetChanged();
+        }
 
-		private final LayoutInflater inflater;
-		private final AlphabetIndexer indexer;
-
-		public PersonsAdapter(Context context) {
-			super(context, null, 0);
-			inflater = LayoutInflater.from(context);
-			indexer = new AlphabetIndexer(null, DatabaseManager.PERSON_NAME_COLUMN_INDEX, ALPHABET);
-		}
-
-		@Override
-		public Person getItem(int position) {
-			return DatabaseManager.toPerson((Cursor) super.getItem(position));
-		}
-
-		@Override
-		public View newView(Context context, Cursor cursor, ViewGroup parent) {
-			View view = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
-
-			ViewHolder holder = new ViewHolder();
-			holder.textView = (TextView) view.findViewById(android.R.id.text1);
-			view.setTag(holder);
-
-			return view;
-		}
-
-		@Override
-		public void bindView(View view, Context context, Cursor cursor) {
-			ViewHolder holder = (ViewHolder) view.getTag();
-			holder.person = DatabaseManager.toPerson(cursor, holder.person);
-			holder.textView.setText(holder.person.getName());
-		}
-
-		@Override
-		public Cursor swapCursor(Cursor newCursor) {
-			indexer.setCursor(newCursor);
-			return super.swapCursor(newCursor);
-		}
-
-		@Override
-		public int getPositionForSection(int sectionIndex) {
-			return indexer.getPositionForSection(sectionIndex);
-		}
-
-		@Override
-		public int getSectionForPosition(int position) {
-			return indexer.getSectionForPosition(position);
-		}
-
-		@Override
-		public Object[] getSections() {
-			return indexer.getSections();
-		}
-
-		private static class ViewHolder {
-			public TextView textView;
-			public Person person;
-		}
-	}
+    }
 }

@@ -49,6 +49,10 @@
                 android:value=".activities.MainActivity"/>
         </activity>
         <activity android:name=".activities.TrackScheduleEventActivity"/>
+
+        <activity android:name=".activities.PersonDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".activities.EventDetailsActivity"
             android:parentActivityName=".activities.TrackScheduleActivity">
