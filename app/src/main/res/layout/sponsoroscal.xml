@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal" >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <org.almotech.oscal.utils.TypefaceTextView
+                font:customTypeface="Roboto-Light.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gold Sponsors"
+        android:textSize="20sp"
+        android:layout_marginTop="0dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="#EC2427"
+        android:textColor="#ffffff"
+        android:id="@+id/gold" />
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:src="@drawable/gold_mozilla"
+        android:layout_gravity="center"
+        android:id="@+id/mozzilla" />
+            <org.almotech.oscal.utils.TypefaceTextView
+                font:customTypeface="Roboto-Light.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Silver Sponsors"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="#EC2427"
+        android:textColor="#ffffff"
+        android:id="@+id/silver" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:weightSum="2"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/silver_orelilly"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/imageView2" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:src="@drawable/silver_goole"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/imageView3" />
+    </LinearLayout>
+            <org.almotech.oscal.utils.TypefaceTextView
+                font:customTypeface="Roboto-Light.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bronze Sponsors"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="#EC2427"
+        android:textColor="#ffffff"
+        android:id="@+id/bronze" />
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:weightSum="2"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/bronze_namecheap"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:id="@+id/br1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:src="@drawable/bronze_brandisty"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:id="@+id/br2" />
+
+        </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:weightSum="2"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bronze_docker"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/br3" />
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bronze_linux"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/br4" />
+            </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:weightSum="2"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@drawable/bronze_cartob"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/br11" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bronze_protoio"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/br21" />
+
+    </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:weightSum="2"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bronze_ama"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/br31" />
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bronze_sitepoint"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/br41" />
+            </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:weightSum="2"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@drawable/bronze_digitalocean"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/br12" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bronze_almotech"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/br22" />
+
+
+    </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:weightSum="2"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bronze_libreoffice"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/br32" />
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bronze_giz"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/br33" />
+            </LinearLayout>
+
+      <org.almotech.oscal.utils.TypefaceTextView
+        font:customTypeface="Roboto-Light.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Partners"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="#EC2427"
+        android:textColor="#ffffff"
+        android:id="@+id/partners" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:weightSum="3"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/partner_ictmedia"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/ict" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/partner_ut"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/ut" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/partner_youthcenter"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/youth" />
+    </LinearLayout>
+            <org.almotech.oscal.utils.TypefaceTextView
+                font:customTypeface="Roboto-Light.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Media Partners"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:gravity="center"
+                android:background="#EC2427"
+                android:textColor="#ffffff"
+                android:id="@+id/media_partner" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:weightSum="1"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/partner_ictmedia"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/ict" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

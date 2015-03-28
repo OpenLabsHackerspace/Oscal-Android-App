@@ -19,11 +19,16 @@
     </plurals>
 
     <!-- Main menu -->
+    <string name="menu_aboutoscal">About OSCAL</string>
     <string name="menu_tracks">Tracks</string>
+    <string name="menu_sponsors">Sponsors</string>
     <string name="menu_code">Code of Conduct</string>
     <string name="menu_live">Live</string>
     <string name="menu_speakers">Speakers</string>
     <string name="menu_map">Map</string>
+
+    <string name="menu_day1">Day 1</string>
+    <string name="menu_day2">Day 2</string>
 
     <!-- Bookmarks -->
     <string name="filter">Filter</string>
@@ -111,9 +116,7 @@
     <string name="directions">Directions to ULB</string>
     <string name="no_data">No data available.</string>
     <string name="about">About OSCAL</string>
-    <string name="about_text">Programmed by <a href="http://www.almotech.org/">ALMOTECH</a>.
-\n
-\n<b>OSCAL</b> (Open Source Conference Albania) is the first annual conference in Albania
+    <string name="about_text"><b>OSCAL</b> (Open Source Conference Albania) is the first annual conference in Albania
         organized to promote software freedom, open source software, free culture and open
         knowledge, a global movement that originally started more than 25 years ago.
 \n
@@ -130,9 +133,16 @@
         the local region and worldwide by being used as a meeting point for a network
         of individuals and companies with the aim of sponsoring and initiating projects
         which benefit the people and taxpayers in Albania and which should also result in
-        commercial benefits for the surrounding region.</string>
+        commercial benefits for the surrounding region.\n
+    Programmed by <a href="http://www.almotech.org/">ALMOTECH</a>.
+\n
+\n
+    "Source code is available under the GPLv3 <a href="https://www.gnu.org/copyleft/gpl.html">https://www.gnu.org/copyleft/gpl.html</a></string>
 
-    <string name="organizers_text">The conference is supported and organized by Open Labs , the community that promotes free libre open source culture in Albania since 2012. Open Labs is a non-government non-profit organization, based in Albania, that aims to support and promote initiatives which provide tools that bring knowledge closer to those more in need.
+    <string name="organizers_text">The conference is supported and organized by Open Labs ,
+        the community that promotes free libre open source culture in Albania since 2012.
+        Open Labs is a non-government non-profit organization, based in Albania, that aims
+        to support and promote initiatives which provide tools that bring knowledge closer to those more in need.
 \n\nWebsite: <a href="http://www.openlabs.cc/">www.openlabs.cc</a>
 \nContact:  <a href="mailto:info@openlabs.cc">info@openlabs.cc</a></string>
 
@@ -144,7 +154,71 @@
     </string>
 
 
-    <string name="title1_resp">OSCAL LLLLL</string>
-    <string name="title1_resp_descr">Bla Bla Bla Bla Bla Bla Bla Bla</string>
+    <string name="title1_resp">OSCAL Code of Conduct</string>
+    <string name="title1_resp_descr">Lorem Ipsum.....</string>
 
+    <string name="code_of_conduct0">
+OSCAL participant responsibilities
+    </string>
+
+        <string name="code_of_conduct1">Over the next two days we will ask a lot of each other.
+        What we discuss, share, build, learn and create together will,
+        at times, stretch us to the point of discomfort. Going in, it\'s
+        important to know that this is something to look forward to and
+        even embrace. The discomfort that comes from stretching ourselves
+        beyond what we thought possible makes what we\'re doing at the second
+        edition of OSCAL worthwhile. Heck, if everyone could do this work,
+        they would — and it wouldn\'t be worth much.By the end of  the conference
+        and beyond (and if we do this right), each one of us will be transformed in
+        some small way; each having learned at least one new thing, made at least one
+        new friend and changed what we thought we knew for certain about free open source
+        culture in Albania and beyond at least once. Learning, connecting and being open
+        and adaptable to change, are the things that will most profoundly impact our work,
+        our lives and the open knowledge scene as we head into the future. So let\'s all do that!The
+        following is a short list of Participant Responsibilities specific to the conference. They
+        were remixed by a similar list by our friends over at the Mozilla Foundation. Keyword here
+        is remixed! These are not rules, but rather boundaries of participation during our time
+        together so that we all get the most out of it.
+    </string>
+
+
+    <string name="code_of_conduct2">participate</string>
+    <string name="code_of_conduct3">The work of changing the world can happen
+        only through active participation. Commit to pushing hard to go beyond
+        what\'’s easy: embrace a new idea, ask a dumb question, participate at one
+        of the open sessions at the workshop room, close your laptop. If the main
+        conference hall does not move you, go to the workshop sessions or at one
+        of the info booths. It\'s okay to shift - really! You alone get to decide
+        what interests you, stretches you and ultimately helps you grow.</string>
+    <string name="code_of_conduct4">make room</string>
+    <string name="code_of_conduct5">OSCAL participants speak at least Albanian,
+        English, German and Greek. We don\'t all understand English fluently. Some
+        of us are hard of hearing and visually impaired. When speaking, do it slowly
+        and loudly. Check in with others as you go to make sure they understand. Some
+        of us have physical limitations that make getting around difficult. Offer open
+        structures with the idea of universal access, rather than waiting for special
+        requests.  Provide clear information on access. Make room (literally and metaphorically)
+        for all before anyone has to ask. Seek to understand, then to be understood. Practice empathy.
+        Assume positive intent.</string>
+    <string name="code_of_conduct6">practice respect</string>
+    <string name="code_of_conduct7">OSCAL is an event where you can safely be your true self
+        (why would you be anything else?) and a time to respect others\' true selves as well
+        (even if it bothers you from time to time). Respect their space and freedom and uniqueness,
+        as much as our own.
+Take care of yourself, body and mind. We only have two days together and they will be long. To learn,
+        participate and have fun you need to be at your best. Rest, eat, drink water, laugh a lot.
+Take care of the space and each other. Pick up trash. Share your power cord.</string>
+    <string name="code_of_conduct8">be helpful</string>
+    <string name="code_of_conduct9">If you see a problem, try to help. If you can\'t help,
+        find someone who can, starting from our awesome  volunteers. Don\'t quietly tolerate
+        unacceptable behavior. Stand up for yours!If someone\'s words make you feel unsafe or
+        uncomfortable — a comment, a joke, a slide — and can\'t address it with them directly,
+        consider involving an intermediary, a volunteer and other people from the organizers crew.
+        You will find them at the Open Labs info booth or by email at <a href="mailto:info@openlabs.cc">info@openlabs.cc</a>.
+
+If you\'ve made someone feel unsafe or uncomfortable, be open to adjusting your presentation or
+        public speech and apologize directly when needed.</string>
+
+    <string name="code_of_conduct10">
+    This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 license,remixed from Mozilla Summit 2013</string>
 </resources>

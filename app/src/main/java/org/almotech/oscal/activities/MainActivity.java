@@ -3,13 +3,13 @@ package org.almotech.oscal.activities;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.SearchManager;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
+
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -57,10 +57,15 @@ import org.almotech.oscal.R;
 import org.almotech.oscal.api.FosdemApi;
 import org.almotech.oscal.db.DatabaseManager;
 import org.almotech.oscal.fragments.CodeListFragment;
-import org.almotech.oscal.fragments.LiveFragment;
-import org.almotech.oscal.fragments.MapFragment;
+
+import org.almotech.oscal.fragments.OscalDay1;
+import org.almotech.oscal.fragments.OscalDay2;
+
 import org.almotech.oscal.fragments.PersonsListFragment;
-import org.almotech.oscal.fragments.TracksFragment;
+
+import org.almotech.oscal.fragments.AboutOscal;
+import org.almotech.oscal.fragments.SponsorOscal;
+
 
 /**
  * Main entry point of the application. Allows to switch between section fragments and update the database.
@@ -70,12 +75,16 @@ import org.almotech.oscal.fragments.TracksFragment;
 public class MainActivity extends ActionBarActivity implements ListView.OnItemClickListener {
 
     String url = "http://oscal.openlabs.cc/";
-
 	private enum Section {
-		TRACKS(TracksFragment.class, R.string.menu_tracks, R.drawable.ic_event_grey600_24dp, true),
-		LIVE(LiveFragment.class, R.string.menu_live, R.drawable.ic_play_circle_outline_grey600_24dp, false),
-		SPEAKERS(PersonsListFragment.class, R.string.menu_speakers, R.drawable.ic_people_grey600_24dp, false),
-		MAP(MapFragment.class, R.string.menu_map, R.drawable.ic_map_grey600_24dp, false),
+        ABOUTOSCAL(AboutOscal.class, R.string.menu_aboutoscal, R.drawable.ic_event_grey600_24dp, true),
+        SPEAKERS(PersonsListFragment.class, R.string.menu_speakers, R.drawable.ic_people_grey600_24dp, false),
+        DAY1(OscalDay1.class, R.string.menu_day1, R.drawable.ic_notification_event_note, false),
+        DAY2(OscalDay2.class, R.string.menu_day2, R.drawable.ic_notification_event_note, false),
+        //TRACKS(TracksFragment.class, R.string.menu_tracks, R.drawable.ic_event_grey600_24dp, false),
+		//LIVE(LiveFragment.class, R.string.menu_live, R.drawable.ic_play_circle_outline_grey600_24dp, false),
+
+        SPONSORS(SponsorOscal.class, R.string.menu_sponsors, R.drawable.ic_action_grade, false),
+		//MAP(MapFragment.class, R.string.menu_map, R.drawable.ic_map_grey600_24dp, false),
         CODEOFCONDUCT(CodeListFragment.class, R.string.menu_code, R.drawable.ic_bookmark_grey600_24dp, false);
 
 		private final String fragmentClassName;
@@ -231,7 +240,7 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 		menuListView.addHeaderView(menuHeaderView, null, false);
 		View menuFooterView = inflater.inflate(R.layout.footer_main_menu, null);
 		menuFooterView.findViewById(R.id.organizers).setOnClickListener(menuFooterClickListener);
-		menuFooterView.findViewById(R.id.about).setOnClickListener(menuFooterClickListener);
+        //menuFooterView.findViewById(R.id.about).setOnClickListener(menuFooterClickListener);
         menuFooterView.findViewById(R.id.contact).setOnClickListener(menuFooterClickListener);
 		menuListView.addFooterView(menuFooterView, null, false);
 
@@ -247,7 +256,7 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 
 		// Restore current section
 		if (savedInstanceState == null) {
-			currentSection = Section.TRACKS;
+			currentSection = Section.ABOUTOSCAL;
 			String fragmentClassName = currentSection.getFragmentClassName();
 			Fragment f = Fragment.instantiate(this, fragmentClassName);
 			getSupportFragmentManager().beginTransaction().add(R.id.content, f, fragmentClassName).commit();
@@ -306,25 +315,25 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 		progressBar.setVisibility(View.GONE);
 
 		// Monitor the schedule download
-		LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
-		lbm.registerReceiver(scheduleDownloadProgressReceiver, new IntentFilter(FosdemApi.ACTION_DOWNLOAD_SCHEDULE_PROGRESS));
-		lbm.registerReceiver(scheduleDownloadResultReceiver, new IntentFilter(FosdemApi.ACTION_DOWNLOAD_SCHEDULE_RESULT));
+        //LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        //lbm.registerReceiver(scheduleDownloadProgressReceiver, new IntentFilter(FosdemApi.ACTION_DOWNLOAD_SCHEDULE_PROGRESS));
+        //lbm.registerReceiver(scheduleDownloadResultReceiver, new IntentFilter(FosdemApi.ACTION_DOWNLOAD_SCHEDULE_RESULT));
 
 		// Download reminder
-		long now = System.currentTimeMillis();
-		long time = DatabaseManager.getInstance().getLastUpdateTime();
-		if ((time == -1L) || (time < (now - DATABASE_VALIDITY_DURATION))) {
-			SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
-			time = prefs.getLong(PREF_LAST_DOWNLOAD_REMINDER_TIME, -1L);
-			if ((time == -1L) || (time < (now - DOWNLOAD_REMINDER_SNOOZE_DURATION))) {
-				prefs.edit().putLong(PREF_LAST_DOWNLOAD_REMINDER_TIME, now).commit();
+        //long now = System.currentTimeMillis();
+        //long time = DatabaseManager.getInstance().getLastUpdateTime();
+        //if ((time == -1L) || (time < (now - DATABASE_VALIDITY_DURATION))) {
+            //	SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+            //	time = prefs.getLong(PREF_LAST_DOWNLOAD_REMINDER_TIME, -1L);
+            //	if ((time == -1L) || (time < (now - DOWNLOAD_REMINDER_SNOOZE_DURATION))) {
+                //	prefs.edit().putLong(PREF_LAST_DOWNLOAD_REMINDER_TIME, now).commit();
 
-				FragmentManager fm = getSupportFragmentManager();
-				if (fm.findFragmentByTag("download_reminder") == null) {
-					new DownloadScheduleReminderDialogFragment().show(fm, "download_reminder");
-				}
-			}
-		}
+                //	FragmentManager fm = getSupportFragmentManager();
+                //	if (fm.findFragmentByTag("download_reminder") == null) {
+                    //			new DownloadScheduleReminderDialogFragment().show(fm, "download_reminder");
+                    //		}
+                //	}
+            //}
 	}
 
 	@Override
@@ -448,9 +457,9 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 				case R.id.organizers:
                     new OrganizersFragment().show(getSupportFragmentManager(), "organizers");
 					break;
-				case R.id.about:
-					new AboutDialogFragment().show(getSupportFragmentManager(), "about");
-					break;
+                //	case R.id.about:
+                //	new AboutDialogFragment().show(getSupportFragmentManager(), "about");
+                //	break;
                 case R.id.contact:
                     new ContactFragment().show(getSupportFragmentManager(), "contact");
                     break;
@@ -587,6 +596,7 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
             String title = getString(R.string.organizers);
             Dialog mDialog =  new AlertDialog.Builder(context)
                     .setTitle(title)
+                    .setIcon(R.drawable.openlabs2)
                     .setMessage(getResources().getText(R.string.organizers_text))
                     .setPositiveButton(android.R.string.ok, null).create();
             return mDialog;

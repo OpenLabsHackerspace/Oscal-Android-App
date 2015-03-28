@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
@@ -20,11 +21,11 @@
 
     <include layout="@layout/speaker_item"/>
 
-    <TextView
+        <org.almotech.oscal.utils.TypefaceTextView
+            font:customTypeface="Roboto-Light.ttf"
         android:id="@+id/descr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
         android:textColor="#3d4b4b"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"

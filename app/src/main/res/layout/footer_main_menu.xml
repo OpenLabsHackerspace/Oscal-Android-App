@@ -15,11 +15,6 @@
         android:background="?selectableItemBackground"
         android:text="@string/organizers"/>
 
-    <TextView
-        android:id="@+id/about"
-        style="@style/MainMenuItem"
-        android:background="?selectableItemBackground"
-        android:text="@string/about"/>
 
     <TextView
         android:id="@+id/contact"

@@ -2,27 +2,132 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:layout_margin="10dp"
     xmlns:font="http://schemas.android.com/apk/res-auto" >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView3"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    <org.almotech.oscal.utils.TypefaceTextView
-        android:id="@+id/title1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/color_primary"
-        android:text="@string/title1_resp"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"
-        font:customTypeface="Roboto-Light.ttf"/>
+            <org.almotech.oscal.utils.TypefaceTextView
+                android:id="@+id/title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_primary"
+                android:text="@string/code_of_conduct0"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp"
+                font:customTypeface="Roboto-Light.ttf"/>
 
-    <TextView
-        android:id="@+id/title1_descr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:layout_below="@id/title1"
-        android:textSize="14sp"
-        android:layout_marginTop="20dp"
-        android:text="@string/title1_resp_descr"/>
+            <org.almotech.oscal.utils.TypefaceTextView
+                font:customTypeface="Roboto-Light.ttf"
+                android:id="@+id/title1_descr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/code_of_conduct1"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_primary"
+                android:text="@string/code_of_conduct2"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp"
+                font:customTypeface="Roboto-Light.ttf"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                font:customTypeface="Roboto-Light.ttf"
+                android:id="@+id/title2_descr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/code_of_conduct3"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                android:id="@+id/title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_primary"
+                android:text="@string/code_of_conduct4"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp"
+                font:customTypeface="Roboto-Light.ttf"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                android:id="@+id/title3_descr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                font:customTypeface="Roboto-Light.ttf"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/code_of_conduct5"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                android:id="@+id/title4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_primary"
+                android:text="@string/code_of_conduct6"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp"
+                font:customTypeface="Roboto-Light.ttf"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                android:id="@+id/title4_descr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                font:customTypeface="Roboto-Light.ttf"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/code_of_conduct7"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                android:id="@+id/title5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_primary"
+                android:text="@string/code_of_conduct8"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp"
+                font:customTypeface="Roboto-Light.ttf"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                android:id="@+id/title5_descr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                font:customTypeface="Roboto-Light.ttf"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/code_of_conduct9"/>
+
+            <org.almotech.oscal.utils.TypefaceTextView
+                font:customTypeface="Roboto-Light.ttf"
+                android:id="@+id/title6_descr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:text="@string/code_of_conduct10"/>
+        </LinearLayout>
+        </ScrollView>
+
+
+
 
 </RelativeLayout>
