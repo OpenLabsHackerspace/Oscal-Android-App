@@ -27,8 +27,8 @@
         android:textColor="#ffffff"
         android:id="@+id/gold" />
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
         android:src="@drawable/gold_mozilla"
         android:layout_gravity="center"
         android:id="@+id/mozzilla" />
