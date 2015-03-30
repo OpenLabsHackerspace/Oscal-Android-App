@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scrollView2"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_gravity="center_horizontal" >
         <LinearLayout
             android:orientation="vertical"
@@ -31,6 +32,8 @@
         android:layout_height="60dp"
         android:src="@drawable/gold_mozilla"
         android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:id="@+id/mozzilla" />
             <org.almotech.oscal.utils.TypefaceTextView
                 font:customTypeface="Roboto-Light.ttf"
@@ -47,22 +50,22 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:weightSum="2"
-        android:layout_height="wrap_content">
+        android:layout_height="80dp">
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:src="@drawable/silver_orelilly"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/imageView2" />
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/silver_goole"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/imageView3" />
@@ -72,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bronze Sponsors"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:padding="10dp"
         android:gravity="center"
@@ -83,12 +86,12 @@
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:weightSum="2"
-            android:layout_height="wrap_content">
+            android:layout_height="100dp">
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
                 android:src="@drawable/bronze_namecheap"
                 android:layout_weight="1"
                 android:layout_gravity="center"
@@ -96,9 +99,9 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:src="@drawable/bronze_brandisty"
-                android:layout_margin="5dp"
+                android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:id="@+id/br2" />
@@ -108,22 +111,22 @@
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:weightSum="2"
-                android:layout_height="wrap_content">
+                android:layout_height="100dp">
 
 
                 <ImageView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/bronze_docker"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:id="@+id/br3" />
                 <ImageView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/bronze_linux"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:id="@+id/br4" />
@@ -132,22 +135,22 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:weightSum="2"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp">
 
         <ImageView
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="2dp"
             android:src="@drawable/bronze_cartob"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/br11" />
 
         <ImageView
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/bronze_protoio"
-            android:layout_margin="5dp"
+            android:layout_margin="2dp"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/br21" />
@@ -157,22 +160,22 @@
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:weightSum="2"
-                android:layout_height="wrap_content">
+                android:layout_height="100dp">
 
 
                 <ImageView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/bronze_ama"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:id="@+id/br31" />
                 <ImageView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/bronze_sitepoint"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:id="@+id/br41" />
@@ -181,22 +184,22 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:weightSum="2"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp">
 
         <ImageView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="2dp"
             android:src="@drawable/bronze_digitalocean"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/br12" />
 
         <ImageView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/bronze_almotech"
-            android:layout_margin="5dp"
+            android:layout_margin="2dp"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/br22" />
@@ -208,22 +211,22 @@
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:weightSum="2"
-                android:layout_height="wrap_content">
+                android:layout_height="100dp">
 
 
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/bronze_libreoffice"
-                    android:layout_margin="5dp"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:id="@+id/br32" />
                 <ImageView
-                    android:layout_width="70dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bronze_giz"
-                    android:layout_margin="5dp"
+                    android:src="@drawable/giz_horizontal"
+                    android:layout_margin="2dp"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:id="@+id/br33" />
@@ -253,10 +256,10 @@
             android:src="@drawable/partner_ictmedia"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:id="@+id/ict" />
+            android:id="@+id/ict2" />
         <ImageView
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_margin="5dp"
             android:src="@drawable/partner_ut"
             android:layout_weight="1"
@@ -293,7 +296,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_margin="10dp"
-                    android:src="@drawable/partner_ictmedia"
+                    android:src="@drawable/mediapartners_pcworld"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:id="@+id/ict" />

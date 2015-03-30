@@ -596,7 +596,7 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
             String title = getString(R.string.organizers);
             Dialog mDialog =  new AlertDialog.Builder(context)
                     .setTitle(title)
-                    .setIcon(R.drawable.openlabs2)
+                    .setIcon(R.drawable.openlabs_low)
                     .setMessage(getResources().getText(R.string.organizers_text))
                     .setPositiveButton(android.R.string.ok, null).create();
             return mDialog;
