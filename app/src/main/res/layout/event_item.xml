@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textSize="16sp"
+        tools:text="Titulli"
+        android:id="@+id/textTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Medium Text"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:id="@+id/textName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-condensed"
+        tools:text="Medium Text"
+        android:id="@+id/textDescr" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        tools:text="16:00 Piramida"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/textTime" />
+</LinearLayout>
