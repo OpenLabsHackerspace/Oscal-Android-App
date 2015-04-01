@@ -3,6 +3,7 @@ package org.almotech.oscal.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.almotech.oscal.model.EventModel;
 import org.almotech.oscal.model.SpeakerModel;
 import org.almotech.oscal.model.ServerResponse;
 import org.almotech.oscal.utils.BusProvider;
@@ -58,5 +59,35 @@ public class Communicator {
     public interface Speakers {
         @GET("/index.php?module=oscal&action=getSpeakers")
         void getResponse(Callback<ArrayList<SpeakerModel>> cb);
+    }
+
+
+    public void getSomeEvents(){
+        RestAdapter restAdapter = new RestAdapter.Builder()
+                .setEndpoint(URL)
+                .setConverter(new GsonConverter(getGsonWithDateTypeAdapter()))
+                .build();
+
+        Events speakers = restAdapter.create(Events.class);
+
+        Callback<ArrayList<EventModel>> callback = new Callback<ArrayList<EventModel>>() {
+            @Override
+            public void success(ArrayList<EventModel> serverResponse, Response response) {
+                BusProvider.getInstance().post(serverResponse);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                error.printStackTrace();
+                BusProvider.getInstance().post(new ArrayList<SpeakerModel>());
+            }
+        };
+
+        speakers.getResponse(callback);
+    }
+
+    public interface Events {
+        @GET("/index.php?module=oscal&action=getEvents")
+        void getResponse(Callback<ArrayList<EventModel>> cb);
     }
 }

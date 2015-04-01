@@ -3,7 +3,7 @@ package org.almotech.oscal.model;
 /**
  * Created by Armando Shkurti on 2015-04-02.
  */
-public class ModelEvents {
+public class EventModel {
 
 
 
