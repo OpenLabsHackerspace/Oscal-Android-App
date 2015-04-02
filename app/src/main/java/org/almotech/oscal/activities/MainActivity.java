@@ -10,6 +10,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 
+import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -50,7 +53,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import org.almotech.oscal.R;
@@ -65,6 +72,7 @@ import org.almotech.oscal.fragments.PersonsListFragment;
 
 import org.almotech.oscal.fragments.AboutOscal;
 import org.almotech.oscal.fragments.SponsorOscal;
+import org.almotech.oscal.model.AppModel;
 
 
 /**
@@ -267,9 +275,32 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 		// Ensure the current section is visible in the menu
 		menuListView.setSelection(currentSection.ordinal());
 		updateActionBar();
+
+
+        merrAllApps();
+
 	}
 
-	private void updateActionBar() {
+    private void merrAllApps() {
+
+        final PackageManager pm = getPackageManager();
+        //get a list of installed apps.
+        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+        ArrayList <AppModel> models = new ArrayList<>();
+        for (ApplicationInfo packageInfo : packages) {
+            AppModel model = new AppModel(packageInfo.packageName ,packageInfo.loadLabel(pm).toString());
+            models.add(model);
+        }
+        String json = new Gson().toJson(models);
+
+        Context mContext = getApplicationContext();
+        SharedPreferences mPrefs = mContext.getSharedPreferences("OscalAppPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putString("OscalPref",json);
+        editor.commit();
+    }
+
+    private void updateActionBar() {
 		if (drawerLayout.isDrawerOpen(mainMenu)) {
 			getSupportActionBar().setTitle(null);
 		} else {
@@ -594,7 +625,7 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             Context context = getActivity();
-            String title = getString(R.string.organizers);
+            String title = "";
             Dialog mDialog =  new AlertDialog.Builder(context)
                     .setTitle(title)
                     .setIcon(R.drawable.openlabs_low)

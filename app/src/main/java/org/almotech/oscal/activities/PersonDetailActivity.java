@@ -47,6 +47,7 @@ public class PersonDetailActivity extends ActionBarActivity {
 
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setTitle(getString(R.string.menu_speakers));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -63,6 +64,9 @@ public class PersonDetailActivity extends ActionBarActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(intent);
                 return true;
+            case android.R.id.home:
+                onBackPressed();
+                break;
         }
         return false;
     }

@@ -135,7 +135,7 @@
         of individuals and companies with the aim of sponsoring and initiating projects
         which benefit the people and taxpayers in Albania and which should also result in
         commercial benefits for the surrounding region.\n \n \n
-    "Source code is available under the GPLv3" <a href="https://www.gnu.org/copyleft/gpl.html">https://www.gnu.org/copyleft/gpl.html</a>
+    "Source Code is available under the Apache 2.0 License" <a href="https://www.apache.org/licenses/LICENSE-2.0 ">https://www.apache.org/licenses/LICENSE-2.0</a>
     \n
     \n
     Based on the  <a href="https://archive.fosdem.org/2014/">FOSDEM</a> Android app
@@ -161,7 +161,7 @@
     <string name="title1_resp_descr">Lorem Ipsum.....</string>
 
     <string name="code_of_conduct0">
-OSCAL participant responsibilities
+OSCAL
     </string>
 
         <string name="code_of_conduct1">Over the next two days we will ask a lot of each other.
