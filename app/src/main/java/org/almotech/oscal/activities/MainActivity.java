@@ -70,12 +70,13 @@ import org.almotech.oscal.fragments.SponsorOscal;
 /**
  * Main entry point of the application. Allows to switch between section fragments and update the database.
  *
- * @author Christophe Beyls
+ * @author Christophe Beyls | Erion
  */
 public class MainActivity extends ActionBarActivity implements ListView.OnItemClickListener {
 
     String url = "http://oscal.openlabs.cc/";
 	private enum Section {
+
         ABOUTOSCAL(AboutOscal.class, R.string.menu_aboutoscal, R.drawable.ic_event_grey600_24dp, true),
         SPEAKERS(PersonsListFragment.class, R.string.menu_speakers, R.drawable.ic_people_grey600_24dp, false),
         DAY1(OscalDay1.class, R.string.menu_day1, R.drawable.ic_notification_event_note, false),
