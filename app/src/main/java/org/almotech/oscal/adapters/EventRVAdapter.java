@@ -42,7 +42,11 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVH>
     @Override
     public void onBindViewHolder(EventVH speakerVH, int position) {
 
+        speakerVH.textTitle.setText(modelArrayList.get(position).getTitle());
+        speakerVH.textName.setText(modelArrayList.get(position).getSpeaker_name());
 
+        speakerVH.textDescr.setText(modelArrayList.get(position).getDescription());
+        speakerVH.textTime.setText("Time: "+modelArrayList.get(position).getTime_event());
     }
 
     @Override
@@ -52,14 +56,18 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVH>
 
     public static class EventVH extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public TextView speakerName;
-        public TextView speakerCompany;
-        public ImageView speakerIamge;
+        public TextView textTitle;
+        public TextView textName;
+        public TextView textDescr;
+        public TextView textTime;
 
         public EventVH(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-
+            textTitle = (TextView)itemView.findViewById(R.id.textTitle);
+            textName = (TextView)itemView.findViewById(R.id.textName);
+            textDescr = (TextView)itemView.findViewById(R.id.textDescr);
+            textTime = (TextView)itemView.findViewById(R.id.textTime);
 
         }
 

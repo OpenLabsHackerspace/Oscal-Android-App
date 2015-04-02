@@ -1,41 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
         android:textSize="16sp"
-        tools:text="Titulli"
-        android:id="@+id/textTitle" />
+        tools:text="Titulli" />
 
     <TextView
+        android:id="@+id/textName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Medium Text"
         android:fontFamily="sans-serif"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:textSize="14sp"
-        android:id="@+id/textName" />
+        tools:text="Medium Text" />
 
     <TextView
+        android:id="@+id/textDescr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
         android:fontFamily="sans-serif-condensed"
-        tools:text="Medium Text"
-        android:id="@+id/textDescr" />
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        tools:text="Medium Text" />
 
     <TextView
+        android:id="@+id/textTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        tools:text="16:00 Piramida"
-        android:textSize="14sp"
         android:fontFamily="sans-serif-medium"
-        android:id="@+id/textTime" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        tools:text="16:00 Piramida" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dddddd"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>
