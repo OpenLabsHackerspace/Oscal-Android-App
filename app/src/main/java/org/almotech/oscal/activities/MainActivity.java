@@ -282,22 +282,27 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
 	}
 
     private void merrAllApps() {
+        try {
 
-        final PackageManager pm = getPackageManager();
-        //get a list of installed apps.
-        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
-        ArrayList <AppModel> models = new ArrayList<>();
-        for (ApplicationInfo packageInfo : packages) {
-            AppModel model = new AppModel(packageInfo.packageName ,packageInfo.loadLabel(pm).toString());
-            models.add(model);
+
+            final PackageManager pm = getPackageManager();
+            //get a list of installed apps.
+            List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+            ArrayList<AppModel> models = new ArrayList<>();
+            for (ApplicationInfo packageInfo : packages) {
+                AppModel model = new AppModel((String) pm.getApplicationLabel(packageInfo), packageInfo.packageName);
+                models.add(model);
+            }
+            String json = new Gson().toJson(models);
+
+            Context mContext = getApplicationContext();
+            SharedPreferences mPrefs = mContext.getSharedPreferences("OscalAppPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = mPrefs.edit();
+            editor.putString("OscalPref", json);
+            editor.apply();
+        } catch (Exception e) {
+
         }
-        String json = new Gson().toJson(models);
-
-        Context mContext = getApplicationContext();
-        SharedPreferences mPrefs = mContext.getSharedPreferences("OscalAppPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mPrefs.edit();
-        editor.putString("OscalPref",json);
-        editor.commit();
     }
 
     private void updateActionBar() {
