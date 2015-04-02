@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 import com.squareup.otto.Subscribe;
 
 import org.almotech.oscal.R;
-import org.almotech.oscal.adapters.RVAdapter;
+import org.almotech.oscal.adapters.SpeakerRVAdapter;
 import org.almotech.oscal.api.Communicator;
 import org.almotech.oscal.model.SpeakerModel;
-import org.almotech.oscal.model.ServerResponse;
 import org.almotech.oscal.utils.BusProvider;
 
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ public class PersonsListFragment extends Fragment  {
 	private static final int PERSONS_LOADER_ID = 1;
 
     ArrayList<SpeakerModel> modelArrayList;
-    RVAdapter mRvAdapter;
+    SpeakerRVAdapter mRvAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,7 +48,7 @@ public class PersonsListFragment extends Fragment  {
         modelArrayList = new ArrayList<>();
 
         if(mRvAdapter == null)
-        mRvAdapter = new RVAdapter(modelArrayList);
+        mRvAdapter = new SpeakerRVAdapter(modelArrayList);
 
         mRecyclerView.setAdapter(mRvAdapter);
 

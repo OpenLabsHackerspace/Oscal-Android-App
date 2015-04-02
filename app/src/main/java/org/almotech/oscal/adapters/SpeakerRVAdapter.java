@@ -19,12 +19,12 @@ import java.util.ArrayList;
 /**
  * Created by Armando Shkurti on 2015-03-23.
  */
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.SpeakerVH> {
+public class SpeakerRVAdapter extends RecyclerView.Adapter<SpeakerRVAdapter.SpeakerVH> {
 
     private static ArrayList<SpeakerModel> modelArrayList;
     private LoadImageUtil mLoadImageUtil;
 
-    public RVAdapter(ArrayList<SpeakerModel> modelArrayList) {
+    public SpeakerRVAdapter(ArrayList<SpeakerModel> modelArrayList) {
 
         this.modelArrayList=modelArrayList;
     }
