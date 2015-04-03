@@ -30,4 +30,7 @@ The result apk file will be placed in ```app/build/outputs/apk/```.
 
 ## Contributors
 
-* Christophe Beyls
+* Armando Shkurti
+* Erion Cuni
+
+### Copyright AlMoTech###
