@@ -22,6 +22,7 @@
     <string name="menu_aboutoscal">About OSCAL</string>
     <string name="menu_tracks">Tracks</string>
     <string name="menu_sponsors">Sponsors</string>
+    <string name="menu_venue">Venue</string>
     <string name="menu_code">Code of Conduct</string>
     <string name="menu_live">Live</string>
     <string name="menu_speakers">Speakers</string>
@@ -236,4 +237,10 @@ If you\'ve made someone feel unsafe or uncomfortable, be open to adjusting your 
 
     <string name="code_of_conduct10">
     This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 license,remixed from Mozilla Summit 2013</string>
+
+<string name="venue">
+    Freedom Building (Godina Liria), part of the University of Tirana,
+    is probably the best venue in Tirana we could have thought of in terms
+    of infrastructure, capacity and location. A big thank you goes to the
+    decision makers at the University of Tirana that agreed to host OSCAL 2015!</string>
 </resources>

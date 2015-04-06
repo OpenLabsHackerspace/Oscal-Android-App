@@ -67,7 +67,7 @@ import org.almotech.oscal.fragments.CodeListFragment;
 
 import org.almotech.oscal.fragments.OscalDay1;
 import org.almotech.oscal.fragments.OscalDay2;
-
+import org.almotech.oscal.fragments.Venue;
 import org.almotech.oscal.fragments.PersonsListFragment;
 
 import org.almotech.oscal.fragments.AboutOscal;
@@ -92,6 +92,7 @@ public class MainActivity extends ActionBarActivity implements ListView.OnItemCl
         //TRACKS(TracksFragment.class, R.string.menu_tracks, R.drawable.ic_event_grey600_24dp, false),
 		//LIVE(LiveFragment.class, R.string.menu_live, R.drawable.ic_play_circle_outline_grey600_24dp, false),
 
+		VENUE(Venue.class, R.string.menu_venue, R.drawable.ic_maps_pin_drop, false),
         SPONSORS(SponsorOscal.class, R.string.menu_sponsors, R.drawable.ic_action_grade, false),
 		//MAP(MapFragment.class, R.string.menu_map, R.drawable.ic_map_grey600_24dp, false),
         CODEOFCONDUCT(CodeListFragment.class, R.string.menu_code, R.drawable.ic_bookmark_grey600_24dp, false);
