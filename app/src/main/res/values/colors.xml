@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="color_primary">#F44336</color> <!-- #ec2427 -->
+    <color name="color_primary">#EC2427</color> <!-- #ec2427 -->
     <color name="color_primary_dark">#D32F2F</color>
     <color name="light_primary_color">#FFCDD2</color>
 
