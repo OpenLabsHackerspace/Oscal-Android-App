@@ -64,6 +64,9 @@
         <activity android:name=".activities.PersonDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity android:name=".activities.VenueDetail"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".activities.EventDetailsActivity"
             android:parentActivityName=".activities.TrackScheduleActivity">

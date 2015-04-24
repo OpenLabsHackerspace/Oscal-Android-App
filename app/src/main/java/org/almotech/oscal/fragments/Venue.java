@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import org.almotech.oscal.R;
+import org.almotech.oscal.activities.TrackScheduleActivity;
+import org.almotech.oscal.activities.VenueDetail;
 import org.osmdroid.DefaultResourceProxyImpl;
 import org.osmdroid.ResourceProxy;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -53,6 +55,15 @@ public class Venue extends Fragment {
 
         View mView = inflater.inflate(R.layout.venue, container,false);
         mMapView = (MapView)mView.findViewById(R.id.mapview);
+
+        mView.findViewById(R.id.pink_icon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent upIntent = new Intent(getActivity(), VenueDetail.class);
+                startActivity(upIntent);
+            }
+        });
 
         setupMap();
         setMarkerToMap();

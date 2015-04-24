@@ -1,48 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:font="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.almotech.oscal.fragments.Venue"
 >
-
-
-    <ScrollView
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView4"
-        android:layout_margin="5dp"
-        android:fillViewport="false" >
+        tilesource="Mapnik" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <org.osmdroid.views.MapView
-                android:id="@+id/mapview"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                tilesource="Mapnik" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/liria"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:layout_marginTop="5dp"
-                android:id="@+id/imageView" />
-
-            <org.almotech.oscal.utils.TypefaceTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                font:customTypeface="Roboto-Light.ttf"
-                android:text="@string/venue"
-                android:id="@+id/textView" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/pink_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_icon="@drawable/ic_action_toggle_star"
+        fab:fab_colorNormal="#EC2427"
+        fab:fab_colorPressed="#D32F2F"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
