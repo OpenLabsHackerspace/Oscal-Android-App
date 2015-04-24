@@ -32,4 +32,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3.1'
     compile files('libs/osmdroid-android-4.1.jar')
     compile files('libs/slf4j-android-1.5.8.jar')
+    compile 'com.jpardogo.materialtabstrip:library:1.0.9'
 }

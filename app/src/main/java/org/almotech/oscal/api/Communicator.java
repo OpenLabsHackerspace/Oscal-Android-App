@@ -3,6 +3,7 @@ package org.almotech.oscal.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.almotech.oscal.model.DayModel;
 import org.almotech.oscal.model.EventModel;
 import org.almotech.oscal.model.SpeakerModel;
 import org.almotech.oscal.model.ServerResponse;
@@ -62,7 +63,7 @@ public class Communicator {
     }
 
 
-    public void getSomeEvents(){
+    public void getSomeEvents(final int page){
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(URL)
                 .setConverter(new GsonConverter(getGsonWithDateTypeAdapter()))
@@ -73,7 +74,7 @@ public class Communicator {
         Callback<ArrayList<EventModel>> callback = new Callback<ArrayList<EventModel>>() {
             @Override
             public void success(ArrayList<EventModel> serverResponse, Response response) {
-                BusProvider.getInstance().post(serverResponse);
+                BusProvider.getInstance().post(new DayModel(serverResponse,page));
             }
 
             @Override

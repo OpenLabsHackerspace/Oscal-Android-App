@@ -2,12 +2,16 @@ package org.almotech.oscal.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.squareup.otto.Subscribe;
 
 import org.almotech.oscal.R;
@@ -26,15 +30,13 @@ import java.util.ArrayList;
 public class OscalDay1 extends Fragment {
 
 
-    ArrayList<EventModel> modelArrayList;
-    EventRVAdapter mRvAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Communicator mCommunicator =new Communicator();
-        mCommunicator.getSomeEvents();
+        /*Communicator mCommunicator =new Communicator();
+        mCommunicator.getSomeEvents();*/
     }
 
 
@@ -42,19 +44,11 @@ public class OscalDay1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.speakers_fragment, container,false);
 
-        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        ViewPager mViewPager = (ViewPager) mView.findViewById(R.id.viewpager);
+        PagerSlidingTabStrip mPagerSlidingTabStrip = (PagerSlidingTabStrip) mView.findViewById(R.id.tabs);
 
-        RecyclerView mRecyclerView = (RecyclerView) mView.findViewById(R.id.rv);
-        mRecyclerView.setLayoutManager(manager);
-
-        if(modelArrayList==null)
-            modelArrayList = new ArrayList<>();
-
-        if(mRvAdapter == null)
-            mRvAdapter = new EventRVAdapter(modelArrayList);
-
-        mRecyclerView.setAdapter(mRvAdapter);
+        mViewPager.setAdapter(new DayFragmentsAdapter(getChildFragmentManager()));
+        mPagerSlidingTabStrip.setViewPager(mViewPager);
 
         return mView;
     }
@@ -62,25 +56,45 @@ public class OscalDay1 extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        BusProvider.getInstance().register(this);
 
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        BusProvider.getInstance().unregister(this);
     }
 
-    @Subscribe
-    public void onSpeakersLoaded(ArrayList<EventModel> modelArrayList){
+    public static class DayFragmentsAdapter extends FragmentPagerAdapter {
 
-        if(modelArrayList != null && modelArrayList.size()>0){
-            this.modelArrayList.clear();
-            this.modelArrayList.addAll(modelArrayList);
-            mRvAdapter.notifyDataSetChanged();
+        public DayFragmentsAdapter(FragmentManager fm) {
+            super(fm);
         }
 
-    }
 
+        @Override
+        public Fragment getItem(int position) {
+            return DayPageFragment.newInstance(position);
+        }
+
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position){
+                case 0:
+                    return "Main Track";
+                case 1:
+                    return "Side Track 1";
+                case 2:
+                    return "Side Track 2";
+                default:
+                    return "Main Track";
+            }
+        }
+    }
 }
