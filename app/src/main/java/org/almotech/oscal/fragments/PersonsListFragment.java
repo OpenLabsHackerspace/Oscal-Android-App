@@ -36,7 +36,7 @@ public class PersonsListFragment extends Fragment  {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View mView = inflater.inflate(R.layout.speakers_fragment, container,false);
+        View mView = inflater.inflate(R.layout.day_page, container,false);
 
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
