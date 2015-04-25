@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         fab:fab_icon="@drawable/ic_action_toggle_star"
-        fab:fab_colorNormal="#EC2427"
+        fab:fab_colorNormal="#FFFFFF"
         fab:fab_colorPressed="#D32F2F"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
