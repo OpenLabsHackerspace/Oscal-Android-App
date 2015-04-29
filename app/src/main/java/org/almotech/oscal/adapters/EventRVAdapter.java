@@ -43,7 +43,8 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVH>
     public void onBindViewHolder(EventVH speakerVH, int position) {
 
         speakerVH.textTitle.setText(modelArrayList.get(position).getTitle());
-        speakerVH.textDescr.setText(modelArrayList.get(position).getDescription());
+        speakerVH.textSpeakerName1.setText(modelArrayList.get(position).getSpeaker_name1());
+        speakerVH.textSpeakerName2.setText(modelArrayList.get(position).getSpeaker_name2());
         speakerVH.textTime.setText(modelArrayList.get(position).getTime_event());
     }
 
@@ -55,7 +56,8 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVH>
     public static class EventVH extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView textTitle;
-        public TextView textName;
+        public TextView textSpeakerName1;
+        public TextView textSpeakerName2;
         public TextView textDescr;
         public TextView textTime;
 
@@ -63,6 +65,8 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVH>
             super(itemView);
             itemView.setOnClickListener(this);
             textTitle = (TextView)itemView.findViewById(R.id.textTitle);
+            textSpeakerName1 = (TextView)itemView.findViewById(R.id.speakername1);
+            textSpeakerName2 = (TextView)itemView.findViewById(R.id.speakername2);
             textDescr = (TextView)itemView.findViewById(R.id.textDescr);
             textTime = (TextView)itemView.findViewById(R.id.textTime);
 

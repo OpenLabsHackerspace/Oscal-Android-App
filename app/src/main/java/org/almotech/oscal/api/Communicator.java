@@ -134,7 +134,7 @@ public class Communicator {
      * used for EventsMainTrackDay1
      */
     public interface EventsMainTrackDay1 {
-        @GET("/index.php?module=oscal&action=getEvents")
+        @GET("/index.php?module=oscal&action=getmain_track1")
         void getResponse(Callback<ArrayList<EventModel>> cb);
     }
 
@@ -142,21 +142,21 @@ public class Communicator {
      * used for EventsSideTrack1Day1
      */
     public interface EventsSideTrack1Day1 {
-        @GET("/index.php?module=oscal&action=getEvents")
+        @GET("/index.php?module=oscal&action=getday1_track1")
         void getResponse(Callback<ArrayList<EventModel>> cb);
     }
     /**
      * used for EventsSideTrack2Day1
      */
     public interface EventsSideTrack2Day1 {
-        @GET("/index.php?module=oscal&action=getEvents")
+        @GET("/index.php?module=oscal&action=getday2_track1")
         void getResponse(Callback<ArrayList<EventModel>> cb);
     }
     /**
      * used for EventsMainTrackDay2
      */
     public interface EventsMainTrackDay2 {
-        @GET("/index.php?module=oscal&action=getEvents")
+        @GET("/index.php?module=oscal&action=getmain_track2")
         void getResponse(Callback<ArrayList<EventModel>> cb);
     }
 
@@ -164,14 +164,14 @@ public class Communicator {
      * used for EventsSideTrack1Day2
      */
     public interface EventsSideTrack1Day2 {
-        @GET("/index.php?module=oscal&action=getEvents")
+        @GET("/index.php?module=oscal&action=getday1_track2")
         void getResponse(Callback<ArrayList<EventModel>> cb);
     }
     /**
      * used for EventsSideTrack2Day2
      */
     public interface EventsSideTrack2Day2 {
-        @GET("/index.php?module=oscal&action=getEvents")
+        @GET("/index.php?module=oscal&action=getday2_track2")
         void getResponse(Callback<ArrayList<EventModel>> cb);
     }
 }

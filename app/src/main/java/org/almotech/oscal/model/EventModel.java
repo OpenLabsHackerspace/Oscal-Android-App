@@ -10,7 +10,10 @@ public class EventModel {
     //http://e-cuni.com/oscal/service/index.php?module=oscal&action=getEvents
     public String id;
     public String title;
-    public String speaker_name;
+    public String speaker_name1;
+    public String speaker_id1;
+    public String speaker_name2;
+    public String speaker_id2;
     public String tag;
     public String time_description;
     public String location;
@@ -27,8 +30,20 @@ public class EventModel {
         return title;
     }
 
-    public String getSpeaker_name() {
-        return speaker_name;
+    public String getSpeaker_name1() {
+        return speaker_name1;
+    }
+
+    public String getSpeaker_id1() {
+        return speaker_id1;
+    }
+
+    public String getSpeaker_name2() {
+        return speaker_name2;
+    }
+
+    public String getSpeaker_id2() {
+        return speaker_id2;
     }
 
     public String getTag() {
