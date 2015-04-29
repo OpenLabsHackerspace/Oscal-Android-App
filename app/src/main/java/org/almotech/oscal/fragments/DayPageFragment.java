@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,14 +25,18 @@ import java.util.ArrayList;
  */
 public class DayPageFragment extends Fragment {
 
-    ArrayList<EventModel> modelArrayList;
     EventRVAdapter mRvAdapter;
+    RecyclerView mRecyclerView;
     public static final String pos="pos";
+    public static final String dayKey="day";
     int pageNumber;
-    public static DayPageFragment newInstance(int page){
+    int  pageDay;
+
+    public static DayPageFragment newInstance(int page, int day){
         DayPageFragment mDayPageFragment = new DayPageFragment();
         Bundle mBundle = new Bundle();
         mBundle.putInt(pos, page);
+        mBundle.putInt(dayKey, day);
         mDayPageFragment.setArguments(mBundle);
         return  mDayPageFragment;
     }
@@ -40,10 +45,11 @@ public class DayPageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if(pageDay == 2 && pageNumber == 0)
+            Log.e("", "");
         pageNumber = getArguments().getInt(pos);
+        pageDay = getArguments().getInt(dayKey);
 
-        Communicator mCommunicator =new Communicator();
-        mCommunicator.getSomeEvents(pageNumber); // cojm tipin e faqe qe kemi main track, sidetrack1 etj
     }
 
 
@@ -54,16 +60,13 @@ public class DayPageFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        RecyclerView mRecyclerView = (RecyclerView) mView.findViewById(R.id.rv);
+        if(pageDay == 2 && pageNumber == 0)
+            Log.e("", "");
+        Communicator mCommunicator =new Communicator();
+        mCommunicator.getSomeEvents(pageNumber,pageDay); // cojm tipin e faqe qe kemi main track, sidetrack1 etj
+
+        mRecyclerView = (RecyclerView) mView.findViewById(R.id.rv);
         mRecyclerView.setLayoutManager(manager);
-
-        if(modelArrayList==null)
-            modelArrayList = new ArrayList<>();
-
-        if(mRvAdapter == null)
-            mRvAdapter = new EventRVAdapter(modelArrayList);
-
-        mRecyclerView.setAdapter(mRvAdapter);
 
         return mView;
     }
@@ -83,15 +86,16 @@ public class DayPageFragment extends Fragment {
 
     @Subscribe
     public void onSpeakersLoaded(DayModel model){
-
-        if (model.getPageNumber() == pageNumber) {//shikojm te jete i njeti tip faqeje
-
+        if(pageDay == 2 && pageNumber == 0)
+            Log.e("pageDay", "pageNumber: 0 , pageDay: 2");
+        if (model.getPageNumber() == pageNumber && model.getPageDay() == pageDay) {//shikojm te jete i njeti tip faqeje
+            if(pageDay == 2 && pageNumber == 0)
+            Log.e("pageDay", "gotData = true");
             ArrayList<EventModel> modelArrayList = model.getServerResponse();
-            if (modelArrayList != null && modelArrayList.size() > 0) {
-                this.modelArrayList.clear();
-                this.modelArrayList.addAll(modelArrayList);
-                mRvAdapter.notifyDataSetChanged();
-            }
+            if(mRvAdapter == null)
+                mRvAdapter = new EventRVAdapter(modelArrayList);
+
+            mRecyclerView.setAdapter(mRvAdapter);
         }
 
     }

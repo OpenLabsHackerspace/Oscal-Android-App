@@ -9,11 +9,13 @@ public class DayModel {
 
     public ArrayList<EventModel> serverResponse;
     public int pageNumber;
+    public int pageDay;
 
 
-    public DayModel(ArrayList<EventModel> serverResponse, int pageNumber) {
+    public DayModel(ArrayList<EventModel> serverResponse, int pageNumber , int pageDay) {
         this.serverResponse = serverResponse;
         this.pageNumber = pageNumber;
+        this.pageDay = pageDay;
     }
 
 
@@ -34,5 +36,13 @@ public class DayModel {
 
     public void setPageNumber(int pageNumber) {
         this.pageNumber = pageNumber;
+    }
+
+    public int getPageDay() {
+        return pageDay;
+    }
+
+    public void setPageDay(int pageDay) {
+        this.pageDay = pageDay;
     }
 }
