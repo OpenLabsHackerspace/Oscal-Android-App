@@ -21,6 +21,7 @@ import retrofit.http.GET;
 
 /**
  * Created by Armando Shkurti on 2015-03-23.
+ * Modified by Erion
  */
 public class Communicator {
 
