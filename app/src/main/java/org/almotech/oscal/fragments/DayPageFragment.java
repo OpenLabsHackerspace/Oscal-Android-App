@@ -27,6 +27,8 @@ public class DayPageFragment extends Fragment {
 
     EventRVAdapter mRvAdapter;
     RecyclerView mRecyclerView;
+    ArrayList<EventModel> modelArrayList;
+
     public static final String pos="pos";
     public static final String dayKey="day";
     int pageNumber;
@@ -57,16 +59,31 @@ public class DayPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View mView = inflater.inflate(R.layout.day_page, container,false);
 
-        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
+
 
         if(pageDay == 2 && pageNumber == 0)
             Log.e("", "");
         Communicator mCommunicator =new Communicator();
         mCommunicator.getSomeEvents(pageNumber,pageDay); // cojm tipin e faqe qe kemi main track, sidetrack1 etj
 
+
+        if (modelArrayList==null){
+            modelArrayList = new ArrayList<>();
+        }
+
+        if (mRvAdapter == null){
+            mRvAdapter = new EventRVAdapter(modelArrayList);
+        }
+
         mRecyclerView = (RecyclerView) mView.findViewById(R.id.rv);
+
+        mRecyclerView.setHasFixedSize(true);
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
+
+        mRecyclerView.setAdapter(mRvAdapter);
+
 
         return mView;
     }
@@ -86,9 +103,9 @@ public class DayPageFragment extends Fragment {
 
     @Subscribe
     public void onSpeakersLoaded(DayModel model){
-        if(pageDay == 2 && pageNumber == 0)
-            Log.e("pageDay", "pageNumber: 0 , pageDay: 2");
-        if (model.getPageNumber() == pageNumber && model.getPageDay() == pageDay) {//shikojm te jete i njeti tip faqeje
+        //if(pageDay == 2 && pageNumber == 0)
+          //  Log.e("pageDay", "pageNumber: 0 , pageDay: 2");
+        /*if (model.getPageNumber() == pageNumber && model.getPageDay() == pageDay) {//shikojm te jete i njeti tip faqeje
             if(pageDay == 2 && pageNumber == 0)
             Log.e("pageDay", "gotData = true");
             ArrayList<EventModel> modelArrayList = model.getServerResponse();
@@ -96,6 +113,16 @@ public class DayPageFragment extends Fragment {
                 mRvAdapter = new EventRVAdapter(modelArrayList);
 
             mRecyclerView.setAdapter(mRvAdapter);
+        }*/
+
+        if (model.getPageNumber() == pageNumber && model.getPageDay() == pageDay) {//shikojm te jete i njeti tip faqeje
+
+            ArrayList<EventModel> modelArrayList = model.getServerResponse();
+            if (modelArrayList != null && modelArrayList.size() >0){
+                this.modelArrayList.clear();
+                this.modelArrayList.addAll(modelArrayList);
+                mRvAdapter.notifyDataSetChanged();
+            }
         }
 
     }
