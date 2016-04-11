@@ -33,4 +33,3 @@ The result apk file will be placed in ```app/build/outputs/apk/```.
 * Armando Shkurti
 * Erion Cuni
 
-### Copyright AlMoTech###
